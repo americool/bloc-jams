@@ -1,30 +1,22 @@
-  var animatePoints = function(){ 
-        
-                var points = document.getElementsByClassName('point');
-                
-                var revealFirstPoint = function() {
-                    points[0].style.opacity = 1;
-                    points[0].styletransform = "scaleX(1) translateY(0)";
-                    points[0].style.msTransform = "scaleX(1) translateY(0)";
-                    points[0].style.webkitTransform = "scalex(1) translateY(0)";
-                };
-                
-                var revealSecondPoint = function() {
-                    points[1].style.opacity = 1; 
-                    points[1].style.transform = "scaleX(1) translateY(0)";
-                    points[1].style.msTransform = "scaleX(1) translateY(0)"
-                    points[1].style.WebkitTranform = "scaleX(1) translateY(0)"
-                };
-                 var revealThirdPoint = function() {
-                    points[2].style.opacity = 1; 
-                    points[2].style.transform = "scaleX(1) translateY(0)";
-                    points[2].style.msTransform = "scaleX(1) translateY(0)"
-                    points[2].style.WebkitTranform = "scaleX(1) translateY(0)"
-                };
-                
-                revealFirstPoint();
-                revealSecondPoint();
-                revealThirdPoint();
-            };
-            
-           
+var animatePoints = function()  {  
+    var revealPoint = function (index) {
+            points[index].style.opacity = 1;
+            points[index].styletransform = "scaleX(1) translateY(0)";
+            points[index].style.msTransform = "scaleX(1) translateY(0)";
+            points[index].style.webkitTransform = "scalex(1) translateY(0)";
+    };
+    for (x = 0; x<points.length; x++){
+        revealPoint(index)
+    };
+};
+
+//I liked this way better             
+//  var revealPoint = function() {            
+//    var points = document.getElementsByClassName('point')
+//    for (x=0; x <=2; x++){
+//            points[x].style.opacity = 1;
+//            points[x].styletransform = "scaleX(1) translateY(0)";
+//            points[x].style.msTransform = "scaleX(1) translateY(0)";
+//            points[x].style.webkitTransform = "scalex(1) translateY(0)";
+//        };
+//};
