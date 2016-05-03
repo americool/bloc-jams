@@ -46,7 +46,7 @@ body.album {
     border-bottom: 1px solid rgba(255,255,255,0.5);
 }
 
-.song-item number {
+.song-item-number {
     width: 5%;
     min-width: 30px; 
 }
