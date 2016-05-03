@@ -28,6 +28,22 @@ var albumMarconi = {
     ]
 };
 
+var anEp = {
+    title: 'The EP',
+    artist: 'SomeDude',
+    label: 'Cool Label',
+    year: '9991',
+    albumArtUrl: 'assets/images/album_covers/huey.png',
+    songs : [
+        { title: 'Dog', duration: '3:26'},
+        { title: 'Woof', duration: '3:54'},
+        { title: 'Bark', duration: '7:01'},
+        { title: 'Sneeze', duration: '13:21'},
+        { title: 'Whine', duration: '1:35'}
+    ]
+};
+
+
 var createSongRow = function(songNumber, songName, songLength) {
     var template = 
         '<tr class="album-view-song-item">'
@@ -40,12 +56,15 @@ var createSongRow = function(songNumber, songName, songLength) {
     return template;
 };
 
-var setCurrentAlbum = function(album) {
+// this was the only part I didn't really realize how to do 
+
     var albumTitle = document.getElementsByClassName('album-view-title')[0];
     var albumArtist = document.getElementsByClassName('album-view-artist')[0];
     var albumReleaseInfo = document.getElementsByClassName('album-view-release-info')[0];
     var albumImage = document.getElementsByClassName('album-cover-art')[0];
     var albumSongList = document.getElementsByClassName('album-view-song-list')[0];
+    
+var setCurrentAlbum = function(album) {
     
     albumTitle.firstChild.nodeValue = album.title; 
     albumArtist.firstChild.nodeValue = album.artist; 
@@ -61,4 +80,14 @@ var setCurrentAlbum = function(album) {
 
 window.onload = function() {
     setCurrentAlbum(albumPicasso);
+
+    var albumIndex = [albumPicasso, albumMarconi, anEp];
+    var count = 0; 
+    albumImage.addEventListener('click', function(event) {
+        setCurrentAlbum(albumIndex[count]);
+        count++;
+        if (count > 2) {
+            count = 0; 
+        }
+    });
 };
