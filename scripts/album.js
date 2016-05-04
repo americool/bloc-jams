@@ -61,14 +61,20 @@ var setCurrentAlbum = function(album) {
 
 //got kinda close to getting this right
 var findParentByClassName = function(element, targetClass){
-    if (element) {
-        var currentParent = element.parentElement;
-        while (currentParent.className != targetClass) {
-            currentParent = currentParent.parentElement;
+    //think I'm doing this right
+    var currentParent = element.parentElement;
+        if (currentParent) {
+            while (currentParent.className != targetClass) {
+                currentParent = currentParent.parentElement;
+                if (currentParent.nodeName === 'html'){ //had to look this up
+                    alert("No parent found with that class name."); break; 
+                }
+            }
+            return currentParent;
         }
-        return currentParent;
-    }
-};
+    else 
+        {alert("No parent found");}
+}; //let me know if this is right
 
 // no way I could get this...
 var getSongItem = function(element){
